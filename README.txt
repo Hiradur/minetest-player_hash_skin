@@ -7,14 +7,11 @@ If you want more than 8 skins, change line 10 in init.lua:
 hash = hash%8 to hash = hash%<count of skins>
 and add additional skins to the textures folder.
 
-Original Author:
------------------------
-Hiradur
 
 License of source code:
 -----------------------
-WTFPL
+WTFPL, original author: Hiradur
 
 License of textures:
 --------------------------------
-WTFPL
+CC-BY-SA 3.0, original author: Jordach
