@@ -9,11 +9,11 @@ minetest.register_on_joinplayer(function(player)
   
   hash = hash%8
    
-	local filename = minetest.get_modpath("player_hash_skin").."/textures/"..hash
+	local filename = minetest.get_modpath("player_hash_skin").."/textures/".."player_hash_skin_"..hash
 	local f = io.open(filename..".png")
 	
 	if f then
 		f:close()
-		default.player_set_textures(player, {string.format("%i.png", hash)})
+		default.player_set_textures(player, {string.format("player_hash_skin_%i.png", hash)})
 	end
 end)
