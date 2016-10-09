@@ -2,8 +2,8 @@ minetest.register_on_joinplayer(function(player)
   local name = player:get_player_name()
   local len = string.len(name)
   local hash = 0
-  
-	h = {}
+ 
+ 	local h = {}
   -- prefix of textures files
 	h.sprefix = "player_hash_skin_"
   -- mod providing textures files
@@ -21,7 +21,7 @@ minetest.register_on_joinplayer(function(player)
 	-- if simple_skins mod exist, use its skins
 	local skinmod = minetest.get_modpath("simple_skins")
 	if skinmod ~= nil then
-	 	minetest.log("action", "[player_hash_skin] simple_skins mod detected")
+	 	minetest.log("info", "[player_hash_skin] simple_skins mod detected")
 		 h.smodpath = minetest.get_modpath("simple_skins")
 		 h.sprefix = "character_"
 		 h.s = 1
@@ -30,7 +30,6 @@ minetest.register_on_joinplayer(function(player)
 	
 	-- loop through the files and count them  
 	h.n = h.s
- 	minetest.log("action", "n =  "..h.n..".")
 	local fp
 	while true do
 		fp = io.open(h.smodpath .. "/textures/".. h.sprefix ..h.n.. ".png")
@@ -41,14 +40,14 @@ minetest.register_on_joinplayer(function(player)
 	-- if count started at 1 need to remove 1
 	h.n = h.n - h.s
 	
- 	minetest.log("action", "[player_hash_skin] "..h.n.." skins found")
+ 	minetest.log("info", "[player_hash_skin] "..h.n.." skins found")
 
 	-- hash
  	hash = hash%h.n
- 	minetest.log("action", "[player_hash_skin] hash =  "..hash..".")
+ 	minetest.log("info", "[player_hash_skin] hash =  "..hash..".")
 
 
-	-- ouvre le fichier
+	-- Open the file (to test its existence)
 	local filename = h.smodpath.."/textures/"..h.sprefix..hash
 	local f = io.open(filename..".png")
 		
