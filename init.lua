@@ -11,7 +11,7 @@ minetest.register_on_joinplayer(function(player)
   -- start count of texture files
 	h.s = 0
   -- number of texture file
-	h.n = 8
+	h.n = -1
 
   for i = 1, len, 1 do
    hash = hash+(string.byte(name,i))
